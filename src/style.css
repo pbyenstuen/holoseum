@@ -88,6 +88,11 @@ a {
     border-radius: 10px;
 }
 
+#product-name-container h1 {
+    font-family: 'Girassol', cursive;
+    font-size: 8vmax;
+}
+
 #product-info-container {
     border-left: 1px solid white;
     padding-left: 1em;
