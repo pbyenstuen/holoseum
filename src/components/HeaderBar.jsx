@@ -1,21 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const HeaderBar = () => {
 
     return (
         <div id="header-bar">
-            <h1>NAVN</h1>
             <nav>
                 <ul>
                     <li>
-                        <Link to="/">HVA ER?</Link>
+                        <NavLink exact={true} activeClassName="is-active" to='/'>HVA ER?</NavLink>
                     </li>
                     <li>
-                        <Link to="/bla">BLA</Link>
+                        <NavLink activeClassName="is-active" to='/kontakt'>KONTAKT OSS</NavLink>
                     </li>
                     <li>
-                        <Link to="/bla">BLA</Link>
+                        <NavLink activeClassName="is-active" to='/bla'>BLABLA</NavLink>
                     </li>
                 </ul>
             </nav>

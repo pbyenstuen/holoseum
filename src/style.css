@@ -1,9 +1,7 @@
 :root {
-    --dark-brown-color: rgb(53, 34, 8);
-    --medium-brown-color: rgb(123, 107, 67);
-    --light-brown-color: rgb(225, 187, 128);
-    --gray-color: rgb(187, 182, 175);
-    --bronze-color: rgb(211, 134, 53);
+    --main-background: #202c31;
+    --marking-color: #b88b52;
+    --card-gradient: linear-gradient(to right bottom, #29353a, #2f3a3e, #353e42, #3b4347, #41484b);
 }
 
 * {
@@ -18,34 +16,103 @@ body {
     font-family: raleway;
 }
 
+a {
+    text-decoration: none;
+    font-family: raleway;
+}
+
+#root {
+    height: 100vh;
+    background-color: var(--main-background);
+}
+
 #header-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid black;
-    padding: 1em;
+    justify-content: center;
+    margin-top: 3em;
 }
 
-#header-bar nav{
-    margin: auto;
-}
-
-#header-bar h1{
-    justify-self: start;
+#header-bar nav {
+    border-bottom: 1px solid white;
 }
 
 #header-bar ul {
-    display: flex; 
+    display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
+    justify-content: center;
 }
 
-#header-bar li {
-    margin-right: 10px;
+#header-bar ul li {
+    text-align: center;
 }
 
 #header-bar nav a {
     padding: 10px;
+    width: 10em;
+    color: white;
+    font-size: 20px;
     display: block;
+}
+
+#header-bar nav a:hover {
+    background-color: #b88c5273;
+}
+
+.is-active {
+    background-color: #41484b96;
+}
+
+.card-container {
+    display: grid;
+    height: calc(100% - 93px);
+}
+
+.card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    justify-self: center;
+    align-self: center;
+    color: white;
+    font-size: 3vmax;
+    background-image: var(--card-gradient);
+    height: 70%;
+    width: 75%;
+    margin: 0em 10em 0em 10em;
+    padding: 1em;
+    box-shadow: #00000033 0px 60px 40px -7px;
+    border-radius: 10px;
+}
+
+#product-info-container {
+    border-left: 1px solid white;
+    padding-left: 1em;
+}
+
+#product-info-container p {
+    font-size: 1.8vmax;
+}
+
+#contact-btn {
+    display: block;
+    background-color: var(--marking-color);
+    margin-top: 2em;
+    border: 0px;
+    width: 100%;
+    color: white;
+    font-family: raleway;
+    font-size: 2.5vmax;
+    height: 2em;
+    box-shadow: #22212133 0px 40px 20px -10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#contact-btn:hover {
+    background-color: #b88c52ef;
+    box-shadow: transparent 0px 0px 0px 0px;
 }
