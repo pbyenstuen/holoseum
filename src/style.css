@@ -21,24 +21,43 @@ a {
     font-family: raleway;
 }
 
+input {
+    color: white;
+    font-size: 20px;
+    padding-bottom: 0.2em;
+    width: 100%;
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid white;
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+    outline: none;
+}
+
+label {
+    font-size: 20px;
+}
+
 #root {
-    height: 100vh;
+    height: 230vh;
+    overflow: hidden;
     background-color: var(--main-background);
 }
 
-#header-bar {
+header {
+    position: fixed;
+    background-color: var(--main-background);
+    width: 100%;
+    z-index: 2;
     display: flex;
     justify-content: space-between;
     align-items: center;
     justify-content: center;
-    margin-top: 3em;
-}
-
-#header-bar nav {
+    padding-top: 1.5em;
     border-bottom: 1px solid white;
 }
 
-#header-bar ul {
+header ul {
     display: flex;
     list-style: none;
     margin: 0;
@@ -46,11 +65,11 @@ a {
     justify-content: center;
 }
 
-#header-bar ul li {
+header ul li {
     text-align: center;
 }
 
-#header-bar nav a {
+header nav a {
     padding: 10px;
     width: 10em;
     color: white;
@@ -58,7 +77,7 @@ a {
     display: block;
 }
 
-#header-bar nav a:hover {
+header nav a:hover {
     background-color: #b88c5273;
 }
 
@@ -68,24 +87,102 @@ a {
 
 .card-container {
     display: grid;
+}
+
+#home-page-container {
+    height: 90%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    overflow: hidden;
+    padding-right: 4em;
+    padding-left: 4em;
+    padding-bottom: 5em;
+}
+
+#contact-page-container {
     height: calc(100% - 93px);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .card {
+    color: white;
+    background-image: var(--card-gradient);
+    padding: 1em;
+    box-shadow: #00000033 0px 60px 40px -7px;
+}
+
+#home-page-card {
+    grid-column: 1 / 4;
+    grid-row: 1 / 4;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
+    font-size: 3vmax;
+    overflow: hidden;
     justify-self: center;
     align-self: center;
-    color: white;
-    font-size: 3vmax;
-    background-image: var(--card-gradient);
+    margin-top: 1em;
+    height: 60%;
+    width: 85%;
+}
+
+.guide-point {
+    margin-top: 1em;
+    width: 80%;
+    height: 100%;
+    background-color: #b88b52;
+    background-image: none;
+    justify-self: center;
+    align-self: center;
+}
+
+#div-center {
+    grid-column: 1 / 4;
+    grid-row: 4 / 7;
+    width: 70%;
+    height: 80%;
+    justify-self: center;
+    align-self: center;
+}
+
+#div-1 {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+}
+
+#div-2 {
+    grid-column: 3 / 4;
+    grid-row: 5 / 6;
+}
+
+#div-3 {
+    grid-column: 1 / 2;
+    grid-row: 6 / 7;
+}
+
+#contact-page-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    grid-column: 1 / 2;
+    justify-self: center;
+    align-self: center;
     height: 70%;
-    width: 75%;
-    margin: 0em 10em 0em 10em;
-    padding: 1em;
-    box-shadow: #00000033 0px 60px 40px -7px;
-    border-radius: 10px;
+    width: 70%;
+}
+
+#contact-page-card h2 {
+    font-size: 30px;
+    margin-bottom: 1em;
+    overflow: hidden;
+}
+
+#contact-page-card form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
 }
 
 #product-name-container h1 {
@@ -102,22 +199,34 @@ a {
     font-size: 1.8vmax;
 }
 
-#contact-btn {
+button {
     display: block;
-    background-color: var(--marking-color);
-    margin-top: 2em;
     border: 0px;
-    width: 100%;
     color: white;
-    font-family: raleway;
-    font-size: 2.5vmax;
-    height: 2em;
-    box-shadow: #22212133 0px 40px 20px -10px;
-    border-radius: 10px;
+    background-color: var(--marking-color);
     cursor: pointer;
+    box-shadow: #22212133 0px 40px 20px -10px;
 }
 
-#contact-btn:hover {
+button:hover {
     background-color: #b88c52ef;
     box-shadow: transparent 0px 0px 0px 0px;
+}
+
+#contact-btn {
+    margin-top: 2em;
+    width: 100%;
+    font-size: 2.5vmax;
+    height: 2em;
+}
+
+#contact-submit-btn {
+    width: 100%;
+    font-size: 20px;
+    padding: 1em;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
 }

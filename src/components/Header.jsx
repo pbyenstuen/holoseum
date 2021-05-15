@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const HeaderBar = () => {
+const Header = () => {
 
     return (
-        <div id="header-bar">
+        <header>
             <nav>
                 <ul>
                     <li>
@@ -18,8 +18,8 @@ const HeaderBar = () => {
                     </li>
                 </ul>
             </nav>
-        </div>
+        </header>
     )
 }
 
-export default HeaderBar;
+export default Header;
