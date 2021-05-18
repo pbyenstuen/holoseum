@@ -6,6 +6,7 @@ import Header from "./Header";
 import HomePage from "./HomePage";
 import ContactPage from "./ContactPage";
 import Footer from "./Footer";
+import NotFound from "./NotFound";
 
 const App = () => {
 
@@ -26,6 +27,9 @@ const App = () => {
                     </Route>
                     <Route path="/kontakt">
                         <ContactPage />
+                    </Route>
+                    <Route>
+                        <NotFound />
                     </Route>
                 </Switch>
                 <Footer />

@@ -14,6 +14,7 @@
 
 body {
     font-family: raleway;
+    background-color: var(--main-background);
 }
 
 a {
