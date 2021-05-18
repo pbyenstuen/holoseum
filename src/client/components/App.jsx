@@ -6,9 +6,10 @@ import Header from "./Header";
 import HomePage from "./HomePage";
 import ContactPage from "./ContactPage";
 import Footer from "./Footer";
+import Item from "./Item";
 import NotFound from "./NotFound";
 
-const App = () => {
+const App = ({ api }) => {
 
     useEffect(() => {
         AOS.init({
@@ -27,6 +28,9 @@ const App = () => {
                     </Route>
                     <Route path="/kontakt">
                         <ContactPage />
+                    </Route>
+                    <Route path="/items/:id">
+                        <Item api={api} />
                     </Route>
                     <Route>
                         <NotFound />
