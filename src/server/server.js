@@ -1,13 +1,16 @@
 const express = require("express");
 const path = require("path");
-const itemApi = require("./item-api");
+const connectDB = require("./config/db");
+const itemApi = require("./routes/item-api");
 
+connectDB();
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, "..", "..", "dist")));
 
+// Routes
 app.use("/api/items", itemApi)
 
 app.use((req, res, next) => {

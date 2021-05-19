@@ -7,6 +7,7 @@ import HomePage from "./HomePage";
 import ContactPage from "./ContactPage";
 import Footer from "./Footer";
 import Item from "./Item";
+import AdminPage from "./AdminPage";
 import NotFound from "./NotFound";
 
 const App = ({ api }) => {
@@ -31,6 +32,9 @@ const App = ({ api }) => {
                     </Route>
                     <Route path="/kontakt">
                         <ContactPage />
+                    </Route>
+                    <Route path="/admin">
+                        <AdminPage api={api} />
                     </Route>
                     <Route>
                         <NotFound />
