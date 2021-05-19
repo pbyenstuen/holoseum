@@ -3,11 +3,11 @@ const itemApi = express.Router();
 
 const items = [
     {
-        id: 1,
+        name: "Tollvaktboden",
         url: "bla"
     },
     {
-        id: 2,
+        name: "Skipskranen",
         url: "bla2"
     }
 ];
@@ -18,9 +18,9 @@ itemApi.get("", (req, res) => {
 });
 
 // Returns one specific item
-itemApi.get("/:id", (req, res) => {
-    const id = parseInt(req.params.id);
-    res.json(items.find((item) => item.id === id));
+itemApi.get("/:name", (req, res) => {
+    const name = req.params.name;
+    res.json(items.find((item) => item.name.toLowerCase() === name));
 });
 
 module.exports = itemApi;

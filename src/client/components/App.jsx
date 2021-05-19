@@ -20,24 +20,24 @@ const App = ({ api }) => {
 
     return (
         <Router>
-            <>
-                <Header />
-                <Switch>
+            <Switch>
+                <Route path="/objekter/:name">
+                    <Item api={api} />
+                </Route>
+                <>
+                    <Header />
                     <Route exact path="/">
                         <HomePage />
                     </Route>
                     <Route path="/kontakt">
                         <ContactPage />
                     </Route>
-                    <Route path="/items/:id">
-                        <Item api={api} />
-                    </Route>
                     <Route>
                         <NotFound />
                     </Route>
-                </Switch>
-                <Footer />
-            </>
+                    <Footer />
+                </>
+            </Switch>
         </Router>
     )
 }

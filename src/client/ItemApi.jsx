@@ -5,8 +5,8 @@ const itemApi = {
         return await fetchJSON("/items");
     },
 
-    getItem: async (id) => {
-        return await fetchJSON(`/items/${id}`);
+    getItem: async (name) => {
+        return await fetchJSON(`/items/${name}`);
     },
 };
 
