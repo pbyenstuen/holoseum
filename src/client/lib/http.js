@@ -28,5 +28,5 @@ export const postJSON = async (url, { method, payload }) => {
 export const fetchJSON = async (url, options = null) => {
   const response = await fetch(`/api${url}`, options);
   checkResponse(response);
-  return await response;
+  return await response.json();
 }
