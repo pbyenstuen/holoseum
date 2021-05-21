@@ -4,21 +4,22 @@ import InputField from "./InputField";
 
 const AdminPage = ({ api }) => {
     const [name, setName] = useState("");
-    const [url, setUrl] = useState("");
+    const [file, setFile] = useState();
     const [inputError, setInputError] = useState();
 
     const { handleSubmit: handleCreateItem, submitting, error } = useSubmit(
         async () => {
-            await api.createItem({
-                name: name,
-                url: url
-            });
+            const formData = new FormData();
+            formData.append("name", name);
+            formData.append("file", file);
+            await api.createItem(formData);
         }
     );
 
     const validateInput = (e) => {
         e.preventDefault();
-        if (!name || !url) { setInputError("Fyll inn alle feltene"); return; }
+
+        if (!name || !file) { setInputError("Fyll inn alle feltene"); return; }
         handleCreateItem(e);
     }
 
@@ -29,17 +30,20 @@ const AdminPage = ({ api }) => {
                     {submitting && <h4>Lagrer objekt...</h4>}
                     {error && <h4>{error.toString()}</h4>}
                     {inputError && <h4>{inputError.toString()}</h4>}
-                    <InputField
-                        label={"Name"}
-                        value={name}
-                        onValueChange={setName}
-                    />
-                    <InputField
-                        label={"URL"}
-                        value={url}
-                        onValueChange={setUrl}
-                    />
-                    <button className="submit-btn" type="submit" disabled={submitting}>LEGG TIL</button>
+                    <div>
+                        <InputField
+                            label={"Navn"}
+                            value={name}
+                            onValueChange={setName}
+                        />
+                        <InputField
+                            label={"3D-objekt"}
+                            type={"file"}
+                            name={"file"}
+                            onValueChange={setFile}
+                        />
+                        <button className="submit-btn" type="submit" disabled={submitting}>LEGG TIL</button>
+                    </div>
                 </form>
             </div>
         </div>

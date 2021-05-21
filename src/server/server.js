@@ -1,9 +1,10 @@
 const express = require("express");
 const path = require("path");
-const connectDB = require("./config/db");
+const { connectDB } = require("./config/db");
 const itemApi = require("./routes/item-api");
 
 connectDB();
+
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));

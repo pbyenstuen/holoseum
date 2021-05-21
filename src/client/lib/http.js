@@ -4,6 +4,15 @@ const checkResponse = (res) => {
   }
 }
 
+export const post = async (url, { method, payload }) => {
+  const response = await fetch(`/api${url}`, {
+    method,
+    body: payload,
+  });
+  checkResponse(response, url);
+  return await response.json();
+}
+
 export const postJSON = async (url, { method, payload }) => {
   const response = await fetch(`/api${url}`, {
     method,
@@ -19,5 +28,5 @@ export const postJSON = async (url, { method, payload }) => {
 export const fetchJSON = async (url, options = null) => {
   const response = await fetch(`/api${url}`, options);
   checkResponse(response);
-  return await response.json();
+  return await response;
 }

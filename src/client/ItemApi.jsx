@@ -1,4 +1,4 @@
-import { fetchJSON, postJSON } from "./lib/http";
+import { post, postJSON, fetchJSON } from "./lib/http";
 
 const itemApi = {
     getItems: async () => {
@@ -9,7 +9,7 @@ const itemApi = {
         return await fetchJSON(`/items/${name}`);
     },
     createItem: async (item) => {
-        return await postJSON("/items/create", {
+        return await post("/items/create", {
             method: "POST",
             payload: item
         });
