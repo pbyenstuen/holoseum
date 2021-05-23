@@ -4,28 +4,17 @@ const checkResponse = (res) => {
   }
 }
 
-export const post = async (url, { method, payload }) => {
+export const post = async (url, { method, payload, headers = undefined }) => {
   const response = await fetch(`/api${url}`, {
     method,
     body: payload,
+    headers: headers
   });
   checkResponse(response, url);
-  return await response.json();
+  return await response;
 }
 
-export const postJSON = async (url, { method, payload }) => {
-  const response = await fetch(`/api${url}`, {
-    method,
-    body: JSON.stringify(payload),
-    headers: {
-      "Content-Type": "application/json",
-    }
-  });
-  checkResponse(response, url);
-  return await response.json();
-}
-
-export const fetchJSON = async (url, options = null) => {
+export const get = async (url, options = undefined) => {
   const response = await fetch(`/api${url}`, options);
   checkResponse(response);
   return await response;

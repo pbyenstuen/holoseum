@@ -20,6 +20,15 @@ hologramApi.post("/upload", upload.single("file"), async (req, res) => {
     res.json({})
 });
 
+hologramApi.get("", (req, res) => {
+    gfs.files.find().toArray((err, files) => {
+        if (!files || files.length === 0) {
+            return res.status(404).send()
+        }
+        return res.json(files);
+    });
+});
+
 // GET /api/holograms/:name
 // Streams requested file from MongoDB
 hologramApi.get("/:name", (req, res) => {
