@@ -5,6 +5,8 @@ const multer = require("multer");
 const GridFsStorage = require("multer-gridfs-storage");
 const mongoURI = "mongodb+srv://pbyenstuen:36sEry595qQJajE@cluster0.mkdfd.mongodb.net/smidig-prosjekt?retryWrites=true&w=majority";
 
+let gfs;
+
 const connectDB = async () => {
     try {
         const conn = await mongoose.connect(mongoURI, {
@@ -41,7 +43,24 @@ const storage = new GridFsStorage({
     }
 });
 
-const upload = multer({ storage });
+const checkFileType = (file, cb) => {
+    const fileTypes = /mp4|gif/;
+    const extName = fileTypes.test(path.extname(file.originalname).toLowerCase());
+    const mimeType = fileTypes.test(file.mimetype)
+  
+    if (mimeType && extName) {
+      return cb(null, true);
+    } else {
+      cb("Not allowed");
+    }
+  }
+
+const upload = multer({ 
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        checkFileType(file, cb);
+    }
+});
 
 module.exports = {
     connectDB,

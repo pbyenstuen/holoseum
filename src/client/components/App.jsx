@@ -6,7 +6,7 @@ import Header from "./Header";
 import HomePage from "./HomePage";
 import ContactPage from "./ContactPage";
 import Footer from "./Footer";
-import Item from "./Item";
+import Hologram from "./Hologram";
 import AdminPage from "./AdminPage";
 import NotFound from "./NotFound";
 
@@ -22,8 +22,8 @@ const App = ({ api }) => {
     return (
         <Router>
             <Switch>
-                <Route path="/objekter/:name">
-                    <Item api={api} />
+                <Route path="/hologrammer/:name">
+                    <Hologram api={api} />
                 </Route>
                 <>
                     <Header />
