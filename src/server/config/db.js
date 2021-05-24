@@ -5,8 +5,6 @@ const multer = require("multer");
 const GridFsStorage = require("multer-gridfs-storage");
 const mongoURI = "mongodb+srv://pbyenstuen:36sEry595qQJajE@cluster0.mkdfd.mongodb.net/smidig-prosjekt?retryWrites=true&w=majority";
 
-let gfs;
-
 const connectDB = async () => {
     try {
         const conn = await mongoose.connect(mongoURI, {
@@ -35,7 +33,7 @@ const storage = new GridFsStorage({
                 const fileInfo = {
                     filename: filename,
                     bucketName: "uploads",
-                    metadata: req.body.name 
+                    metadata: req.body.name.toLowerCase()
                 };
                 resolve(fileInfo);
             });

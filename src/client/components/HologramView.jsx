@@ -3,7 +3,7 @@ import ErrorView from "./ErrorView";
 import { useParams } from "react-router";
 import useLoader from "./useLoader";
 
-const Hologram = ({ api }) => {
+const HologramView = ({ api }) => {
     const { name } = useParams();
     const { loading, error, reload } = useLoader(async () => await api.getHologram(name), [name]);
 
@@ -22,4 +22,4 @@ const Hologram = ({ api }) => {
     )
 }
 
-export default Hologram;
+export default HologramView;

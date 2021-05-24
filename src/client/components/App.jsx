@@ -6,7 +6,7 @@ import Header from "./Header";
 import HomePage from "./HomePage";
 import ContactPage from "./ContactPage";
 import Footer from "./Footer";
-import Hologram from "./Hologram";
+import HologramView from "./HologramView";
 import AdminPage from "./AdminPage";
 import NotFound from "./NotFound";
 
@@ -23,7 +23,7 @@ const App = ({ api }) => {
         <Router>
             <Switch>
                 <Route path="/hologrammer/:name">
-                    <Hologram api={api} />
+                    <HologramView api={api} />
                 </Route>
                 <>
                     <Header />
@@ -36,9 +36,9 @@ const App = ({ api }) => {
                     <Route path="/admin">
                         <AdminPage api={api} />
                     </Route>
-                    <Route>
+                    {/* <Route>
                         <NotFound />
-                    </Route>
+                    </Route> */}
                     <Footer />
                 </>
             </Switch>
