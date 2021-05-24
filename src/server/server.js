@@ -1,6 +1,9 @@
 const express = require("express");
 const path = require("path");
-const itemApi = require("./item-api");
+const { connectDB } = require("./config/db");
+const hologramApi = require("./routes/hologram-api");
+
+connectDB();
 
 const app = express();
 
@@ -8,7 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, "..", "..", "dist")));
 
-app.use("/api/items", itemApi)
+// Routes
+app.use("/api/holograms", hologramApi)
 
 app.use((req, res, next) => {
     if (req.method === "GET" && !req.path.startsWith("/api")) {
@@ -18,8 +22,8 @@ app.use((req, res, next) => {
     }
 });
 
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log(`Started server on http://localhost:${PORT}`);
+app.listen(port, () => {
+    console.log(`Started server on http://localhost:${port}`);
 });

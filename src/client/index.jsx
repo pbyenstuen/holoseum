@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
-import ItemApi from "./ItemApi";
+import HologramApi from "./HologramApi";
 
-ReactDOM.render(<App api={ItemApi} />, document.getElementById("root"));
+ReactDOM.render(<App api={HologramApi} />, document.getElementById("root"));
