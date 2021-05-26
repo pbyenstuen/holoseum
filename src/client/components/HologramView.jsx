@@ -17,9 +17,11 @@ const HologramView = ({ api }) => {
     }
 
     return (
-        <video width="100%" height="100%" controls loop autoPlay muted>
-            <source src={`/api/holograms/${name}`} type="video/mp4"></source>
-        </video>
+        <div id="video-container">
+            <video width="100%" height="100%" controls loop autoPlay muted >
+                <source src={`/api/holograms/${name}`} type="video/mp4"></source>
+            </video>
+        </div>
     )
 }
 
