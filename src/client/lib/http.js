@@ -1,6 +1,11 @@
-const checkResponse = (res) => {
+const checkResponse = (res, url) => {
   if (!res.ok) {
-    throw Error(`${res.status} ${res.statusText}`);
+    let error = `${res.status} ${res.statusText}`;
+    const statusCode = res.status.toString();
+    if (url.startsWith("/auth") && (statusCode === "400" || statusCode === "401")) {
+      error = "Feil brukernavn/passord";
+    }
+    throw error;
   }
 }
 

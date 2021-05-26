@@ -19,7 +19,7 @@ const HomePage = () => {
                     </p>
                         <Link to="/kontakt">
                             <Button id="contact-btn">
-                                <p>KONTAKT OSS</p>
+                                <p>BESTILL HER</p>
                             </Button>
                         </Link>
                     </div>

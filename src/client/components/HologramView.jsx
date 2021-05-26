@@ -5,7 +5,7 @@ import useLoader from "./useLoader";
 
 const HologramView = ({ api }) => {
     const { name } = useParams();
-    const { loading, error, reload } = useLoader(async () => await api.getHologram(name), [name]);
+    const { loading, error, reload } = useLoader(async () => await api.holo.getHologram(name), [name]);
 
     if (loading) {
         return <h2>Laster...</h2>

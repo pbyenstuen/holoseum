@@ -42,7 +42,7 @@ const storage = new GridFsStorage({
 });
 
 const checkFileType = (file, cb) => {
-    const fileTypes = /mp4|gif/;
+    const fileTypes = /mp4/;
     const extName = fileTypes.test(path.extname(file.originalname).toLowerCase());
     const mimeType = fileTypes.test(file.mimetype)
   

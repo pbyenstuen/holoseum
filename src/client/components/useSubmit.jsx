@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-const useSubmit = (submitFunction, onSubmitSuccess = null) => {
+const useSubmit = (submitFunction, onSubmitSuccess) => {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState();
 
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
     setError(undefined);

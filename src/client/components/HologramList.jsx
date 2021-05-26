@@ -7,7 +7,7 @@ const HologramList = ({ api, holograms, loading, error, updateList }) => {
     const { handleSubmit: handleDeleteHologram, submitting } = useSubmit(
         async () => {
             console.log("hoh", name)
-            await api.deleteHologram({ name });
+            await api.holo.deleteHologram({ name });
         }
     );
 

@@ -1,7 +1,7 @@
 const express = require("express");
 const Grid = require('gridfs-stream');
 const mongoose = require('mongoose');
-const { upload } = require("../config/db");
+const { upload } = require("../config/db-config");
 
 const conn = mongoose.connection;
 let gfs;
@@ -20,6 +20,7 @@ const hologramApi = express.Router();
 // POST /api/holograms/upload
 // Uploads file to MongoDB (accepts .mp4 and .gif)
 hologramApi.post("/upload", upload.single("file"), async (req, res) => {
+    if (!req.user) return res.status(401).send();
     console.log(req.file);
     res.json({})
 });
@@ -27,6 +28,7 @@ hologramApi.post("/upload", upload.single("file"), async (req, res) => {
 // GET /api/holograms
 // Returns metadata for all files stored in MongoDB
 hologramApi.get("", (req, res) => {
+    if (!req.user) return res.status(401).send();
     gfs.files.find().toArray((err, files) => {
         if (!files || files.length === 0) {
             return res.status(404).send()
@@ -38,8 +40,10 @@ hologramApi.get("", (req, res) => {
 // DELETE /api/holograms/:name
 // Deletes selected file from MongoDB
 hologramApi.delete("/:name", (req, res) => {
+    if (!req.user) return res.status(401).send();
     const name = req.body.name.toLowerCase();
-    gfs.files.deleteOne({ metadata: name }, (err, file) => {
+
+    gfs.remove({ _id: "60acd64e7c67aa0cf088a84f" }, (err, file) => {
         if (err) {
             return res.status(404).send();
         }

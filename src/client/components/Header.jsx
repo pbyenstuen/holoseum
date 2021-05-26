@@ -1,7 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import useSubmit from "./useSubmit";
 
-const Header = () => {
+const Header = ({ api, user, updateUser }) => {
+    const history = useHistory();
+
+    const { handleSubmit: handleLogout, submitting } = useSubmit(
+        async () => {
+            await api.auth.logOut();
+        },
+        async () => {
+            await updateUser();
+            history.push("/");
+        }
+    );
 
     return (
         <header>
@@ -11,13 +24,11 @@ const Header = () => {
                         <NavLink exact={true} activeClassName="is-active" to='/'>HVA ER?</NavLink>
                     </li>
                     <li>
-                        <NavLink activeClassName="is-active" to='/kontakt'>KONTAKT OSS</NavLink>
-                    </li>
-                    <li>
-                        <NavLink activeClassName="is-active" to='/bla'>BLABLA</NavLink>
+                        <NavLink activeClassName="is-active" to='/kontakt'>BESTILL</NavLink>
                     </li>
                 </ul>
             </nav>
+            {user && <button disabled={submitting} onClick={handleLogout}>LOGG UT</button>}
         </header>
     )
 }

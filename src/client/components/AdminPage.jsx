@@ -4,7 +4,7 @@ import HologramList from "./HologramList";
 import useLoader from "./useLoader";
 
 const AdminPage = ({ api }) => {
-    const { data: holograms, loading, error, reload: updateList } = useLoader(async () => await api.getHolograms());
+    const { data: holograms, loading, error, reload: updateList } = useLoader(async () => await api.holo.getHolograms());
 
     return (
         <div id="admin-page-container">

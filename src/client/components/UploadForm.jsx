@@ -13,7 +13,7 @@ const UploadForm = ({ api, updateList }) => {
             const formData = new FormData();
             formData.append("name", name);
             formData.append("file", file);
-            await api.uploadHologram(formData);
+            await api.holo.uploadHologram(formData);
         },
         () => {
             setStatus("Opplasting fullført!")
@@ -54,7 +54,6 @@ const UploadForm = ({ api, updateList }) => {
                 }
             </div>
         </section>
-
     );
 };
 
