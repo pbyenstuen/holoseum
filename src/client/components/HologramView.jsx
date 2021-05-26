@@ -1,6 +1,7 @@
-import React, { usteState, useEffect } from 'react';
-import ErrorView from "./ErrorView";
+import React from 'react';
 import { useParams } from "react-router";
+import { BlockReserveLoading } from "react-loadingg";
+import ErrorView from "./ErrorView";
 import useLoader from "./useLoader";
 
 const HologramView = ({ api }) => {
@@ -8,7 +9,7 @@ const HologramView = ({ api }) => {
     const { loading, error, reload } = useLoader(async () => await api.holo.getHologram(name), [name]);
 
     if (loading) {
-        return <h2>Laster...</h2>
+        return <BlockReserveLoading />;
     }
 
     if (error) {
