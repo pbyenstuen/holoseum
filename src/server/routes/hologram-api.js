@@ -18,7 +18,7 @@ conn.once("open", () => {
 const hologramApi = express.Router();
 
 // POST /api/holograms/upload
-// Uploads file to MongoDB (accepts .mp4 and .gif)
+// Uploads file to MongoDB (accepts .mp4 only)
 hologramApi.post("/upload", upload.single("file"), async (req, res) => {
     if (!req.user) return res.status(401).send();
     console.log(req.file);
