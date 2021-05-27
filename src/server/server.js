@@ -1,12 +1,15 @@
 const express = require("express");
 const path = require("path");
+const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
+const MongoStore = require("connect-mongo");
 const initPassport = require("./config/passport-config");
 const { connectDB } = require("./config/db-config");
 const authApi = require("./routes/auth-api");
 const hologramApi = require("./routes/hologram-api");
+const mongoURI = "mongodb+srv://pbyenstuen:36sEry595qQJajE@cluster0.mkdfd.mongodb.net/smidig-prosjekt?retryWrites=true&w=majority";
 
 initPassport(passport);
 connectDB();
@@ -18,6 +21,7 @@ app.use(
         secret: "dfg&546Rytr$%!$#%gfd56fgH&",
         resave: false,
         saveUninitialized: false,
+        store: MongoStore.create({ mongoUrl: mongoURI })
     })
 );
 
