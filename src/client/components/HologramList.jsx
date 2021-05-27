@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
-import { BlockReserveLoading } from "react-loadingg";
+import React from 'react';
 import useSubmit from "./useSubmit";
 
 const HologramList = ({ api, holograms, loading, error, updateList }) => {
-    const [name, setName] = useState("fg");
 
     const { handleSubmit: handleDeleteHologram, submitting } = useSubmit(
-        async () => {
-            console.log("hoh", name)
+        async (data) => {
+            const name = data;
             await api.holo.deleteHologram({ name });
-        }
+        },
     );
 
     const handleClick = (e, name) => {
-        setName(name);
-        handleDeleteHologram(e);
+        handleDeleteHologram(e, name)
         updateList();
     }
 

@@ -1,6 +1,7 @@
 const express = require("express");
 const Grid = require('gridfs-stream');
 const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 const { upload } = require("../config/db-config");
 
 const conn = mongoose.connection;
@@ -41,20 +42,27 @@ hologramApi.get("", (req, res) => {
 // Deletes selected file from MongoDB
 hologramApi.delete("/:name", (req, res) => {
     if (!req.user) return res.status(401).send();
-    const name = req.body.name.toLowerCase();
 
-    gfs.remove({ _id: "60acd64e7c67aa0cf088a84f" }, (err, file) => {
-        if (err) {
-            return res.status(404).send();
-        }
-        res.status(200).send();
-    });
+    // gfs.files.findOne({ metadata: req.body.name }, (err, file) => {
+    //     if (err) return res.status(404).send()
+        
+    //     gfs.collection("uploads.chunks").deleteMany({ files_id: file._id }, (err) => {
+    //         if (err) return res.status(500).send()
+    //     });
+    // });
+
+    gfs.files.deleteOne({ metadata: req.body.name }, (err) => {
+        if (err) return res.status(500).send();
+    })
+
+    return res.status(200).send()
 });
 
 // GET /api/holograms/:name
 // Streams selected file from MongoDB
 hologramApi.get("/:name", (req, res) => {
     gfs.files.findOne({ metadata: req.params.name }, (err, file) => {
+        console.log(file);
         if (err) {
             return res.status(404).send;
         }
