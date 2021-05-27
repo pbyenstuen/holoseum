@@ -21,7 +21,7 @@ const App = ({ api }) => {
             once: true,
             duration: 1500
         });
-    });
+    }, []);
 
     return (
         <Router>
