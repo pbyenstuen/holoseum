@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BlockReserveLoading } from "react-loadingg";
 import AOS from "aos";
 import "aos/dist/aos.css"
-import ProtectedRoute from "./ProtectedRoute";
 import Header from "./Header";
 import HomePage from "./HomePage";
 import ContactPage from "./ContactPage";
@@ -14,7 +14,7 @@ import useLoader from "./useLoader";
 import NotFound from "./NotFound";
 
 const App = ({ api }) => {
-    const { data: user, reload: updateUser } = useLoader(async () => await api.auth.getUser());
+    const { data: user, loading, reload: updateUser } = useLoader(async () => await api.auth.getUser());
 
     useEffect(() => {
         AOS.init({
@@ -37,15 +37,13 @@ const App = ({ api }) => {
                     <Route path={"/kontakt"}>
                         <ContactPage />
                     </Route>
-                    <Route path={"/login"}>
-                        <LoginPage api={api} updateUser={updateUser} />
+                    <Route path={"/admin"}>
+                        {loading ? <BlockReserveLoading /> :
+                            <>
+                                {user ? <AdminPage api={api} /> : <LoginPage api={api} updateUser={updateUser} />}
+                            </>
+                        }
                     </Route>
-                    <ProtectedRoute
-                        path={"/admin"}
-                        user={user}
-                        component={AdminPage}
-                        api={api}
-                    />
                     {/* <Route>
                         <NotFound />
                     </Route> */}
