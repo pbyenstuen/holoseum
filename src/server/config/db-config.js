@@ -3,11 +3,10 @@ const path = require("path");
 const mongoose = require("mongoose");
 const multer = require("multer");
 const GridFsStorage = require("multer-gridfs-storage");
-const mongoURI = "mongodb+srv://pbyenstuen:36sEry595qQJajE@cluster0.mkdfd.mongodb.net/smidig-prosjekt?retryWrites=true&w=majority";
 
 const connectDB = async () => {
     try {
-        const conn = await mongoose.connect(mongoURI, {
+        const conn = await mongoose.connect(process.env.MONGO_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useFindAndModify: false
@@ -21,7 +20,7 @@ const connectDB = async () => {
 }
 
 const storage = new GridFsStorage({
-    url: mongoURI,
+    url: process.env.MONGO_URI,
     file: (req, file) => {
         return new Promise((resolve, reject) => {
             crypto.randomBytes(16, (err, buf) => {
