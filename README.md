@@ -2,4 +2,4 @@
 
 ### Kjøre
 1. `npm install` for å installere dependencies
-2. `npm start` for å starte applikasjonen
+2. `npm run dev` for å starte applikasjonen
