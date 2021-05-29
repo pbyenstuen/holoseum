@@ -1,3 +1,4 @@
+require("dotenv").config();
 const crypto = require("crypto");
 const path = require("path");
 const mongoose = require("mongoose");
@@ -21,6 +22,9 @@ const connectDB = async () => {
 
 const storage = new GridFsStorage({
     url: process.env.MONGO_URI,
+    options: {
+        useNewUrlParser: true
+    },
     file: (req, file) => {
         return new Promise((resolve, reject) => {
             crypto.randomBytes(16, (err, buf) => {
@@ -44,15 +48,15 @@ const checkFileType = (file, cb) => {
     const fileTypes = /mp4/;
     const extName = fileTypes.test(path.extname(file.originalname).toLowerCase());
     const mimeType = fileTypes.test(file.mimetype)
-  
-    if (mimeType && extName) {
-      return cb(null, true);
-    } else {
-      cb("Not allowed");
-    }
-  }
 
-const upload = multer({ 
+    if (mimeType && extName) {
+        return cb(null, true);
+    } else {
+        cb("Not allowed");
+    }
+}
+
+const upload = multer({
     storage: storage,
     fileFilter: (req, file, cb) => {
         checkFileType(file, cb);
