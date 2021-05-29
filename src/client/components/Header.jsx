@@ -26,6 +26,12 @@ const Header = ({ api, user, updateUser }) => {
                     <li>
                         <NavLink activeClassName="is-active" to='/kontakt'>BESTILL</NavLink>
                     </li>
+                    {
+                        user &&
+                        <li>
+                            <NavLink activeClassName="is-active" to='/admin'>ADMIN</NavLink>
+                        </li>
+                    }
                 </ul>
             </nav>
             {user && <button disabled={submitting} onClick={handleLogout}>LOGG UT</button>}
