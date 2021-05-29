@@ -2,6 +2,9 @@
   "name": "smidig-prosjekt",
   "version": "1.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "14.x"
+  },
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
@@ -13,11 +16,12 @@
     "prettier": "^2.2.1"
   },
   "scripts": {
-    "start": "concurrently npm:server npm:parcel",
+    "start": "node src/server/server.js",
+    "dev": "concurrently npm:server npm:parcel",
     "server": "nodemon --watch src/server src/server/server.js",
     "parcel": "parcel watch src/client/index.html",
     "build": "parcel build src/client/index.html",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix src/client && npm run build --prefix src/client",
+    "heroku-postbuild": "npm install && npm run build",
     "test": "jest --coverage",
     "format": "prettier --write src"
   },
