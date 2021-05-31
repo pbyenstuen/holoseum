@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
-import useSubmit from "./useSubmit";
+import useSubmit from "../hooks/useSubmit";
 import InputField from "./InputField";
 
 const LoginPage = ({ api, updateUser }) => {

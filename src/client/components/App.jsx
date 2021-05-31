@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { BlockReserveLoading } from "react-loadingg";
 import AOS from "aos";
 import "aos/dist/aos.css"
+import PublicRoute from "../hocs/PublicRoute";
+import ProtectedRoute from "../hocs/ProtectedRoute";
+import useLoader from "../hooks/useLoader";
 import Header from "./Header";
 import HomePage from "./HomePage";
 import ContactPage from "./ContactPage";
 import Footer from "./Footer";
 import HologramView from "./HologramView";
 import AdminPage from "./AdminPage";
-import LoginPage from "./LoginPage";
-import useLoader from "./useLoader";
 import NotFound from "./NotFound";
 
 const App = ({ api }) => {
@@ -23,34 +23,47 @@ const App = ({ api }) => {
         });
     }, []);
 
+    const LandingLayout = ({ children }) => {
+        return (
+            <>
+                <Header
+                    api={api}
+                    user={user}
+                    updateUser={updateUser} />
+                {children}
+                <Footer />
+            </>
+        )
+    }
+
     return (
         <Router>
             <Switch>
-                <Route path={"/hologrammer/:name"}>
-                    <HologramView api={api} />
-                </Route>
-                <>
-                    <Header api={api} user={user} updateUser={updateUser} />
-                    <Route exact path={"/"}>
-                        <HomePage />
-                    </Route>
-                    <Route path={"/kontakt"}>
-                        <ContactPage />
-                    </Route>
-                    <Route path={"/admin"}>
-                        {loading ? <BlockReserveLoading /> :
-                            <>
-                                {user ? <AdminPage api={api} /> : <LoginPage api={api} updateUser={updateUser} />}
-                            </>
-                        }
-                    </Route>
-                    {/* <Route>
-                        <NotFound />
-                    </Route> */}
-                    <Footer />
-                </>
-            </Switch>
-        </Router>
+                <PublicRoute
+                    path={"/hologrammer/:name"}
+                    component={HologramView}
+                    api={api} />
+                <PublicRoute
+                    exact path={"/"}
+                    component={HomePage}
+                    layout={LandingLayout} />
+                <PublicRoute
+                    path={"/kontakt"}
+                    component={ContactPage}
+                    layout={LandingLayout} />
+                <ProtectedRoute
+                    path={"/admin"}
+                    component={AdminPage}
+                    layout={LandingLayout}
+                    user={user}
+                    loading={loading}
+                    updateUser={updateUser}
+                    api={api} />
+                <Route
+                    path={"*"}
+                    component={NotFound} />
+            </Switch >
+        </Router >
     )
 }
 

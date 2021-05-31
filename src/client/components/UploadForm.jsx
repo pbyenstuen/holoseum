@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useSubmit from "./useSubmit";
+import useSubmit from "../hooks/useSubmit";
 import InputField from "./InputField";
 
 const UploadForm = ({ api, updateList }) => {

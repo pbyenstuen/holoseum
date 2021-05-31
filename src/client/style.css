@@ -245,8 +245,7 @@ footer {
     bottom: 0;
 }
 
-#admin-page-container,
-#login-page-container {
+#admin-page-container, #login-page-container {
     color: white;
     margin: auto;
     margin-top: 8em;
@@ -269,7 +268,7 @@ footer {
     padding: 2em;
 }
 
-#login-card h2{
+#login-card h2 {
     margin-bottom: 1em;
 }
 
@@ -326,7 +325,7 @@ footer {
     margin: 0.5em 0em 0.5em 0em;
 }
 
-#hologram-list-container div  p {
+#hologram-list-container div p {
     flex: 1;
 }
 
@@ -340,4 +339,27 @@ footer {
     margin: 0;
     height: 100vh;
     width: 100vw;
+}
+
+#not-found-container {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+#not-found-container h1 {
+    font-size: 50px;
+    margin-bottom: 0.3em;
+    color: var(--marking-color);
+}
+
+#not-found-container a {
+    margin-top: 1em;
+    color: white;
+    text-decoration: underline;
 }

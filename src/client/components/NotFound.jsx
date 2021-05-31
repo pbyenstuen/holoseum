@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
-    <div>
-      <h2>NOT FOUND: 404</h2>
-      <p>THE PAGE YOU REQUESTED IS NOT AVAILABLE</p>
-      <Link to="/">GO TO HOME PAGE</Link>
+    <div id="not-found-container">
+      <h1>404</h1>
+      <p>Siden du lette etter finnes ikke</p>
+      <Link to="/">Klikk her for å gå til hovedsiden</Link>
     </div>
   );
 };

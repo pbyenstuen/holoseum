@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from "react-router";
 import { BlockReserveLoading } from "react-loadingg";
 import ErrorView from "./ErrorView";
-import useLoader from "./useLoader";
+import useLoader from "../hooks/useLoader";
 
 const HologramView = ({ api }) => {
     const { name } = useParams();
@@ -18,7 +18,7 @@ const HologramView = ({ api }) => {
 
     return (
         <div id="video-container">
-            <video width="100%" height="100%" controls loop autoPlay muted>
+            <video width="100%" height="100%" loop autoPlay muted>
                 <source src={`/api/holograms/${name}`} type="video/mp4"></source>
             </video>
         </div>

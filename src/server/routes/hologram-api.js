@@ -1,7 +1,6 @@
 const express = require("express");
 const Grid = require('gridfs-stream');
 const mongoose = require('mongoose');
-const ObjectId = mongoose.Types.ObjectId;
 const { upload } = require("../config/db-config");
 
 const conn = mongoose.connection;
