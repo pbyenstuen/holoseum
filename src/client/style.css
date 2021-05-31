@@ -341,7 +341,7 @@ footer {
     width: 100vw;
 }
 
-#not-found-container {
+.center-full-screen {
     display: flex;
     flex-direction: column;
     color: white;
@@ -362,4 +362,16 @@ footer {
     margin-top: 1em;
     color: white;
     text-decoration: underline;
+}
+
+#error-container h1 {
+    font-size: 50px;
+    margin-bottom: 0.3em;
+    color: var(--marking-color);
+}
+
+#error-container button {
+    margin-top: 3em;
+    padding: 0.6em;
+    font-size: 15px;
 }
