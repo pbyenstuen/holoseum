@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import useSubmit from "../hooks/useSubmit";
 import InputField from "./InputField";
 
@@ -32,6 +33,7 @@ const LoginPage = ({ api, updateUser }) => {
     return (
         <div id="login-page-container">
             <div id="login-card">
+                <Link to="/">← Hovedside</Link>
                 <h2>Admin - Logg Inn</h2>
                 <form onSubmit={validateInput}>
                     {submitting && <h4>Vennligst vent...</h4>}
