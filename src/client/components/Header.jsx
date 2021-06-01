@@ -24,7 +24,7 @@ const Header = ({ api, user, updateUser }) => {
                         <NavLink exact={true} activeClassName="is-active" to='/'>HVA ER?</NavLink>
                     </li>
                     <li>
-                        <NavLink activeClassName="is-active" to='/kontakt'>BESTILL</NavLink>
+                        <NavLink activeClassName="is-active" to='/kontakt'>KONTAKT</NavLink>
                     </li>
                     {
                         user &&
