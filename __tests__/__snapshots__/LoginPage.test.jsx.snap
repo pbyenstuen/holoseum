@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginPage can show error message 1`] = `"<div id=\\"login-page-container\\"><div id=\\"login-card\\"><a href=\\"/\\">← Hovedside</a><h2>Admin - Logg Inn</h2><form><h4>Error: Feil brukernavn/passord</h4><div><label> <input name=\\"username\\" type=\\"text\\" placeholder=\\"Brukernavn\\" value=\\"realDonaldTrump\\"></label></div><div><label> <input name=\\"password\\" type=\\"password\\" placeholder=\\"Passord\\" value=\\"yourehired\\"></label></div><button>LOGG INN</button></form></div></div>"`;
+
+exports[`LoginPage can show error message for empty fields 1`] = `"<div id=\\"login-page-container\\"><div id=\\"login-card\\"><a href=\\"/\\">← Hovedside</a><h2>Admin - Logg Inn</h2><form><h4>Vennligst fyll inn begge feltene</h4><div><label> <input name=\\"username\\" type=\\"text\\" placeholder=\\"Brukernavn\\" value=\\"\\"></label></div><div><label> <input name=\\"password\\" type=\\"password\\" placeholder=\\"Passord\\" value=\\"\\"></label></div><button>LOGG INN</button></form></div></div>"`;

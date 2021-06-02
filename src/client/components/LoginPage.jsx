@@ -40,11 +40,13 @@ const LoginPage = ({ api, updateUser }) => {
                     {error && <h4>{error.toString()}</h4>}
                     {inputError && <h4>{inputError.toString()}</h4>}
                     <InputField
+                        name={"username"}
                         placeholder={"Brukernavn"}
                         value={username}
                         onValueChange={setUsername}
                     />
                     <InputField
+                        name={"password"}
                         placeholder={"Passord"}
                         type={"password"}
                         value={password}
