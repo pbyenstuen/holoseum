@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders authenticated view 1`] = `"<header><nav><ul><li><a aria-current=\\"page\\" class=\\"is-active\\" href=\\"/\\">HVA ER?</a></li><li><a href=\\"/kontakt\\">KONTAKT</a></li><li><a href=\\"/admin\\">ADMIN</a></li></ul></nav><button>LOGG UT</button></header>"`;
+
+exports[`Header renders unauthenticated view 1`] = `"<header><nav><ul><li><a aria-current=\\"page\\" class=\\"is-active\\" href=\\"/\\">HVA ER?</a></li><li><a href=\\"/kontakt\\">KONTAKT</a></li></ul></nav></header>"`;

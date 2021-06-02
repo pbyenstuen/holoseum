@@ -66,7 +66,6 @@ describe("App", () => {
 
         await mountComponent(<App api={api} />, "/admin");
 
-        expect(container.innerHTML).toMatchSnapshot();
         expect(container.querySelector("h2").textContent).toEqual("Admin - Logg Inn");
     });
 
@@ -81,7 +80,6 @@ describe("App", () => {
 
         await mountComponent(<App api={api} />, "/admin");
 
-        expect(container.innerHTML).toMatchSnapshot();
         expect(container.querySelector("h2").textContent).toEqual("Last opp hologram");
     });
 });
