@@ -39,11 +39,13 @@ const UploadForm = ({ api, updateList }) => {
                         <div>
                             <InputField
                                 label={"Navn"}
+                                name={"name"}
                                 value={name}
                                 onValueChange={setName}
                             />
                             <InputField
                                 label={"Hologram"}
+                                name={"file"}
                                 type={"file"}
                                 name={"file"}
                                 onValueChange={setFile}
