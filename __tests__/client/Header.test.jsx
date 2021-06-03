@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { act, isDOMComponent, Simulate } from "react-dom/test-utils";
 import { MemoryRouter } from "react-router";
-import Header from "../src/client/components/Header";
+import Header from "../../src/client/components/Header";
 
 let container;
 

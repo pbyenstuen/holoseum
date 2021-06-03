@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { act } from "react-dom/test-utils";
 import { MemoryRouter } from "react-router";
-import App from "../src/client/components/App";
+import App from "../../src/client/components/App";
 
 require('react-router-dom').BrowserRouter = ({ children }) => <div>{children}</div>
 
@@ -55,7 +55,7 @@ describe("App", () => {
         expect(container.querySelector("h1").textContent).toEqual("HOLOSEUM");
     });
 
-    it("renders login component on attempt to access protected route while unauthenticated", async () => {
+    it("renders login component on attempt to access protected route unauthenticated", async () => {
         const api = {
             auth: {
                 getUser: () => {
@@ -69,7 +69,7 @@ describe("App", () => {
         expect(container.querySelector("h2").textContent).toEqual("Admin - Logg Inn");
     });
 
-    it("gives access to protected route while authenticated", async () => {
+    it("gives access to protected route if authenticated", async () => {
         const api = {
             auth: {
                 getUser: () => {
