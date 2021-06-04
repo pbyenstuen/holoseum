@@ -1,6 +1,9 @@
 import React from "react";
 import { Button } from "semantic-ui-react"
 import { Link } from "react-router-dom";
+import guideStep1 from "url:/img/guide-step-1.gif";
+import guideStep2 from "url:/img/guide-step-2.gif";
+import guideStep3 from "url:/img/guide-step-3.gif";
 
 const HomePage = () => {
 
@@ -32,10 +35,25 @@ const HomePage = () => {
                     </div>
                 </div>
 
-                <div id="div-center" className="card" data-aos="fade-up"></div>
-                <div id="div-1" className="guide-point card" data-aos="fade-up" data-aos-offset="400"></div>
-                <div id="div-2" className="guide-point card" data-aos="fade-up" data-aos-delay="500"></div>
-                <div id="div-3" className="guide-point card" data-aos="fade-up" data-aos-delay="500"></div>
+                <div id="guide-container">
+                    <div className="guide-point card" data-aos="fade-up">
+                        <h2>1</h2>
+                        <img src={guideStep1} alt="Guide animasjon - steg 1" />
+                        <p>Sett sammen stativet</p>
+                    </div>
+
+                    <div className="guide-point card" data-aos="fade-up" data-aos-delay="500">
+                        <h2>2</h2>
+                        <img src={guideStep2} alt="Guide animasjon - steg 2" />
+                        <p>Bruk et nettbrett og skann en QR-kode på kartet i brosjyren</p>
+                    </div>
+
+                    <div className="guide-point card" data-aos="fade-up" data-aos-delay="1000">
+                        <h2>3</h2>
+                        <img src={guideStep3} alt="Guide animasjon - steg 3" />
+                        <p>Legg nettbrettet på toppen av stativet, og hologrammet vil vises</p>
+                    </div>
+                </div>
             </div>
         </>
     )

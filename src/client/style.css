@@ -2,6 +2,7 @@
     --main-background: #202c31;
     --marking-color: #b88b52;
     --card-gradient: linear-gradient(to right bottom, #29353a, #2f3a3e, #353e42, #3b4347, #41484b);
+    --card-gradient-transparent-top: linear-gradient(to bottom, #29353a00, #2f3a3e, #353e42, #3b4347, #41484bbe);
 }
 
 * {
@@ -61,6 +62,12 @@ header {
     border-bottom: 1px solid #435258;
 }
 
+footer {
+    width: 100%;
+    height: 4em;
+    border-top: 1px solid #435258;
+}
+
 button {
     display: block;
     border: 0px;
@@ -114,10 +121,10 @@ header button {
 }
 
 #home-page-container {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 6em;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(8, 1fr);
     overflow: hidden;
     padding-right: 4em;
     padding-left: 4em;
@@ -139,7 +146,7 @@ header button {
     height: 100%;
 }
 
-#contact-page-card textarea{
+#contact-page-card textarea {
     margin-top: 1em;
     color: white;
     border: 1px 0px 1px 0px solid white;
@@ -161,13 +168,10 @@ header button {
 }
 
 #home-page-banner {
+    margin-bottom: 2em;
     padding: 0;
-    grid-column: 1 / 4;
-    grid-row: 1 / 4;
     font-size: 3vmax;
     overflow: hidden;
-    justify-self: center;
-    align-self: center;
     margin-top: 0.6em;
     height: 77vh;
     width: 95%;
@@ -210,38 +214,39 @@ header button {
     height: 2em;
 }
 
+#guide-container {
+    width: 95%;
+    display: flex;
+    gap: 5em;
+    padding-bottom: 5em;
+    overflow: hidden;
+}
+
 .guide-point {
-    margin-top: 1em;
-    width: 80%;
-    height: 100%;
-    background-color: #b88b52;
-    background-image: none;
-    justify-self: center;
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+    width: 95%;
+    padding: 3em;
+    background-image: var(--card-gradient-transparent-top);
+    overflow: hidden;
 }
 
-#div-center {
-    grid-column: 1 / 4;
-    grid-row: 5 / 8;
-    width: 70%;
-    height: 80%;
-    justify-self: center;
-    align-self: center;
+.guide-point h2 {
+    font-family: 'Girassol', cursive;
+    color: var(--marking-color);
+    font-size: 12vmax;
 }
 
-#div-1 {
-    grid-column: 1 / 2;
-    grid-row: 5 / 6;
+.guide-point p {
+    text-align: center;
+    font-size: 1.3vmax;
 }
 
-#div-2 {
-    grid-column: 3 / 4;
-    grid-row: 6 / 7;
-}
-
-#div-3 {
-    grid-column: 1 / 2;
-    grid-row: 7 / 8;
+.guide-point img {
+    width: 15em;
+    height: 15em;
 }
 
 #contact-page-card {
@@ -421,4 +426,35 @@ footer {
     margin-top: 3em;
     padding: 0.6em;
     font-size: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+    header {
+        padding: 0;
+    }
+    
+    #home-page-container {
+        padding: 0;
+    }
+
+    #contact-page-card {
+        width: 75%;
+    }
+    
+    #guide-container {
+        flex-direction: column;
+        gap: 0;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 0;
+    }
+
+    .guide-point {
+        box-shadow: none;
+        background-image: var(--card-gradient);
+    }
+
+    footer {
+        display: none;
+    }
 }
