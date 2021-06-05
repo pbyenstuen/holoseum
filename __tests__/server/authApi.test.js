@@ -1,6 +1,7 @@
-const supertest = require("supertest");
-const app = require("../../src/server/server");
-const request = supertest(app);
+const request = require("supertest");
+const bcrypt = require("bcryptjs");
+const { app, server } = require("../../src/server/server");
+const User = require("../../src/server/models/User")
 
 const credentials = {
     username: "admin",
@@ -8,63 +9,64 @@ const credentials = {
 };
 
 beforeAll(async () => {
-    dbConnect();
-    const user = new User(credentials);
+    const hashedPassword = await bcrypt.hash(credentials.password, 10);
+    const user = new User({
+        username: credentials.username,
+        password: hashedPassword
+    });
     await user.save();
 });
 
-afterAll(async () => dbDisconnect());
+afterAll(async () => {
+    User.deleteOne({ username: credentials.username }, (err) => {
+        if (err) console.log(err);
+    });
+
+    try {
+        await server.close();
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+});
 
 describe("auth API", () => {
     it("can log in user", async () => {
-        await request
+        await request(app)
             .post("/api/auth/login")
             .send(credentials)
             .expect(200);
     });
 
-//     it("can log out user", async () => {
-//         await request(app)
-//             .post("/api/auth/signup")
-//             .send(credentials)
-//             .expect(201);
+    it("can log out user", async () => {
+        await request(app)
+            .post("/api/auth/login")
+            .send(credentials)
+            .expect(200)
 
-//         await request(app)
-//             .post("/api/auth/login")
-//             .send(credentials)
-//             .expect(200)
+        await request(app)
+            .post("/api/auth/logout")
+            .expect(204);
+    });
 
-//         await request(app)
-//             .post("/api/auth/logout")
-//             .expect(204);
-//     });
+    it("returns 401 on fetching non-existent user", async () => {
+        await request(app)
+            .get("/api/auth/user")
+            .expect(401);
+    });
 
-//     it("returns 401 on fetching non-existent user", async () => {
-//         await request(app)
-//             .get("/api/auth/user")
-//             .expect(401);
-//     });
+    it("can return user info", async () => {
+        const user = request.agent(app);
 
-//     it("can return user info", async () => {
-//         const user = request.agent(app);
+        await user
+            .post("/api/auth/login")
+            .send(credentials)
+            .expect(200);
 
-//         await user
-//             .post("/api/auth/signup")
-//             .send(credentials)
-//             .expect(201);
-
-//         await user
-//             .post("/api/auth/login")
-//             .send(credentials)
-//             .expect(200);
-
-//         await user
-//             .get("/api/auth/user")
-//             .then((response) => {
-//                 expect(response.body).toMatchObject({
-//                     username: "realDonaldTrump",
-//                     displayName: "realDonaldTrump"
-//                 });
-//             });
-//     });
+        await user
+            .get("/api/auth/user")
+            .then((response) => {
+                expect(response.body).toMatch("admin");
+            });
+    });
 });

@@ -46,6 +46,11 @@ app.use((req, res, next) => {
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`Started server on http://localhost:${port}`);
 });
+
+module.exports = {
+    app,
+    server
+};
