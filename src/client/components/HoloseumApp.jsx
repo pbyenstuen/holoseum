@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AOS from "aos";
+import useLoader from "../hooks/useLoader";
 import PublicRoute from "../hocs/PublicRoute";
 import ProtectedRoute from "../hocs/ProtectedRoute";
-import useLoader from "../hooks/useLoader";
-import Header from "./Header";
-import HomePage from "./HomePage";
-import ContactPage from "./ContactPage";
-import Footer from "./Footer";
-import HologramView from "./HologramView";
-import AdminPage from "./AdminPage";
+import HomePage from "./landing-page/HomePage";
+import ContactPage from "./landing-page/ContactPage";
+import HologramView from "./hologram-view/HologramView";
+import AdminPage from "./admin/AdminPage";
+import Header from "./shared/Header";
+import Footer from "./shared/Footer";
 import NotFound from "./NotFound";
 
 const App = ({ api }) => {

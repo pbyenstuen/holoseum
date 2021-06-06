@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-import useSubmit from "../hooks/useSubmit";
-import InputField from "./InputField";
+import useSubmit from "../../hooks/useSubmit";
+import InputField from "../shared/InputField";
 
 const LoginPage = ({ api, updateUser }) => {
     const [username, setUsername] = useState("");

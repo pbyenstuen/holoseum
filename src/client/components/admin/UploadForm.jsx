@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import useSubmit from "../hooks/useSubmit";
-import InputField from "./InputField";
+import useSubmit from "../../hooks/useSubmit";
+import InputField from "../shared/InputField";
 
 const UploadForm = ({ api, updateList }) => {
     const [name, setName] = useState("");

@@ -1,5 +1,5 @@
 import React from 'react';
-import useSubmit from "../hooks/useSubmit";
+import useSubmit from "../../hooks/useSubmit";
 
 const HologramList = ({ api, holograms, loading, error, updateList }) => {
 

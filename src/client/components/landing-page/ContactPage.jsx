@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import InputField from "./InputField";
+import InputField from "../shared/InputField";
 
 const ContactPage = () => {
     const [name, setName] = useState("");

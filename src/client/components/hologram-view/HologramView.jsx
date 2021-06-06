@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from "react-router";
 import { BlockReserveLoading } from "react-loadingg";
 import ErrorView from "./ErrorView";
-import useLoader from "../hooks/useLoader";
+import useLoader from "../../hooks/useLoader";
 
 const HologramView = ({ api }) => {
     const { name } = useParams();

@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { BlockReserveLoading } from "react-loadingg";
-import LoginPage from "../components/LoginPage"
+import LoginPage from "../components/admin/LoginPage"
 
 const ProtectedRoute = ({ component: Component, layout: Layout, user, loading, ...rest }) => {
 

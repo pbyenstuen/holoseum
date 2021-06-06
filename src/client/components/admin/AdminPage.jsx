@@ -1,7 +1,7 @@
 import React from "react";
 import UploadForm from "./UploadForm";
 import HologramList from "./HologramList";
-import useLoader from "../hooks/useLoader";
+import useLoader from "../../hooks/useLoader";
 
 const AdminPage = ({ api }) => {
     const { data: holograms, loading, error, reload: updateList } = useLoader(async () => await api.holo.getHolograms());
