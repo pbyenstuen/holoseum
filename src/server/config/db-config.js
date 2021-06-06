@@ -1,3 +1,5 @@
+// GridFS boilerplate code taken from the YouTube channel Traversy Media (https://www.youtube.com/watch?v=3f5Q9wDePzY&t=1519s)
+
 require("dotenv").config();
 const crypto = require("crypto");
 const path = require("path");

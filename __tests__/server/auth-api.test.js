@@ -2,6 +2,7 @@ const request = require("supertest");
 const bcrypt = require("bcryptjs");
 const { app, server } = require("../../src/server/server");
 const User = require("../../src/server/models/User")
+const agent = request.agent(app);
 
 const credentials = {
     username: "admin",
@@ -32,19 +33,19 @@ afterAll(async () => {
 
 describe("auth API", () => {
     it("can log in user", async () => {
-        await request(app)
+        await agent
             .post("/api/auth/login")
             .send(credentials)
             .expect(200);
     });
 
     it("can log out user", async () => {
-        await request(app)
+        await agent
             .post("/api/auth/login")
             .send(credentials)
-            .expect(200)
+            .expect(200);
 
-        await request(app)
+        await agent
             .post("/api/auth/logout")
             .expect(204);
     });
@@ -56,14 +57,12 @@ describe("auth API", () => {
     });
 
     it("can return user info", async () => {
-        const user = request.agent(app);
-
-        await user
+        await agent
             .post("/api/auth/login")
             .send(credentials)
             .expect(200);
 
-        await user
+        await agent
             .get("/api/auth/user")
             .then((response) => {
                 expect(response.body).toMatch("admin");
