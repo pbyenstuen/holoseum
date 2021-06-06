@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactPage renders contact form 1`] = `"<div id=\\"contact-page-container\\" class=\\"card-container\\"><div id=\\"contact-page-card\\" class=\\"card\\"><h2>KONTAKT OSS</h2><form><div id=\\"input-container\\"><div><label>Navn <input type=\\"text\\" value=\\"\\"></label></div><div><label>E-postadresse <input type=\\"text\\" value=\\"\\"></label></div><label>Melding</label><textarea></textarea></div><button id=\\"contact-submit-btn\\">SEND</button></form></div></div>"`;
