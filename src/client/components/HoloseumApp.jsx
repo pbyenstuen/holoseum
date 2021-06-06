@@ -12,7 +12,7 @@ import Header from "./shared/Header";
 import Footer from "./shared/Footer";
 import NotFound from "./NotFound";
 
-const App = ({ api }) => {
+const HoloseumApp = ({ api }) => {
     const { data: user, loading, reload: updateUser } = useLoader(async () => await api.auth.getUser());
 
     useEffect(() => {
@@ -66,4 +66,4 @@ const App = ({ api }) => {
     )
 }
 
-export default App;
+export default HoloseumApp;

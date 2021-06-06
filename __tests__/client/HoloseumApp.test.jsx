@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { act } from "react-dom/test-utils";
 import { MemoryRouter } from "react-router";
-import App from "../../src/client/components/App";
+import HoloseumApp from "../../src/client/components/HoloseumApp";
 
 require('react-router-dom').BrowserRouter = ({ children }) => <div>{children}</div>
 
@@ -24,7 +24,7 @@ const mountComponent = async (component, entries) => {
     });
 }
 
-describe("App", () => {
+describe("HoloseumApp", () => {
     it("routes to NotFound component on invalid path", async () => {
         const api = {
             auth: {
@@ -34,7 +34,7 @@ describe("App", () => {
             }
         }
 
-        await mountComponent(<App api={api} />, "/nothing");
+        await mountComponent(<HoloseumApp api={api} />, "/nothing");
 
         expect(container.innerHTML).toMatchSnapshot();
         expect(container.querySelector("h1").textContent).toEqual("404");
@@ -49,7 +49,7 @@ describe("App", () => {
             }
         }
 
-        await mountComponent(<App api={api} />, "/");
+        await mountComponent(<HoloseumApp api={api} />, "/");
 
         expect(container.innerHTML).toMatchSnapshot();
         expect(container.querySelector("h1").textContent).toEqual("HOLOSEUM");
@@ -64,7 +64,7 @@ describe("App", () => {
             }
         }
 
-        await mountComponent(<App api={api} />, "/admin");
+        await mountComponent(<HoloseumApp api={api} />, "/admin");
 
         expect(container.querySelector("h2").textContent).toEqual("Admin - Logg Inn");
     });
@@ -78,7 +78,7 @@ describe("App", () => {
             }
         }
 
-        await mountComponent(<App api={api} />, "/admin");
+        await mountComponent(<HoloseumApp api={api} />, "/admin");
 
         expect(container.querySelector("h2").textContent).toEqual("Last opp hologram");
     });

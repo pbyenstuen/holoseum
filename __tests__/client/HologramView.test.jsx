@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { act } from "react-dom/test-utils";
 import { MemoryRouter } from "react-router";
-import HologramView from "../../src/client/components/HologramView";
+import HologramView from "../../src/client/components/hologram-view/HologramView";
 
 let container;
 

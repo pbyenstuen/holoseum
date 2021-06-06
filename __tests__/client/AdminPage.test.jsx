@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { act, Simulate } from "react-dom/test-utils";
 import { MemoryRouter } from "react-router";
-import AdminPage from "../../src/client/components/AdminPage";
+import AdminPage from "../../src/client/components/admin/AdminPage";
 
 let container;
 

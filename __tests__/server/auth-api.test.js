@@ -37,7 +37,7 @@ describe("auth API", () => {
             .post("/api/auth/login")
             .send(credentials)
             .expect(200);
-    });
+    }, 20000);
 
     it("can log out user", async () => {
         await agent
@@ -48,13 +48,13 @@ describe("auth API", () => {
         await agent
             .post("/api/auth/logout")
             .expect(204);
-    });
+    }, 20000);
 
     it("returns 401 on fetching non-existent user", async () => {
         await request(app)
             .get("/api/auth/user")
             .expect(401);
-    });
+    }, 20000);
 
     it("can return user info", async () => {
         await agent
@@ -67,5 +67,5 @@ describe("auth API", () => {
             .then((response) => {
                 expect(response.body).toMatch("admin");
             });
-    });
+    }, 20000);
 });

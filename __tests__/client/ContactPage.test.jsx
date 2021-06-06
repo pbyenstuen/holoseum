@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { act, isDOMComponent } from "react-dom/test-utils";
 import { MemoryRouter } from "react-router";
-import ContactPage from "../../src/client/components/ContactPage";
+import ContactPage from "../../src/client/components/landing-page/ContactPage";
 
 let container;
 
