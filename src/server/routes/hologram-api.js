@@ -9,10 +9,6 @@ let gfs;
 conn.once("open", () => {
     gfs = Grid(conn.db, mongoose.mongo);
     gfs.collection("uploads");
-
-    // gfs = new mongoose.mongo.GridFSBucket(conn.db, {
-    //     bucketName: "uploads"
-    // })
 });
 
 const hologramApi = express.Router();
@@ -22,7 +18,7 @@ const hologramApi = express.Router();
 hologramApi.post("/upload", upload.single("file"), async (req, res) => {
     if (!req.user) return res.status(401).send();
     console.log(req.file);
-    res.json({})
+    res.json({});
 });
 
 // GET /api/holograms
@@ -41,19 +37,9 @@ hologramApi.get("", (req, res) => {
 // Deletes selected file from MongoDB
 hologramApi.delete("/:name", (req, res) => {
     if (!req.user) return res.status(401).send();
-
-    // gfs.files.findOne({ metadata: req.body.name }, (err, file) => {
-    //     if (err) return res.status(404).send()
-        
-    //     gfs.collection("uploads.chunks").deleteMany({ files_id: file._id }, (err) => {
-    //         if (err) return res.status(500).send()
-    //     });
-    // });
-
     gfs.files.deleteOne({ metadata: req.body.name }, (err) => {
         if (err) return res.status(500).send();
     })
-
     return res.status(200).send()
 });
 
@@ -102,48 +88,5 @@ hologramApi.get("/:name", (req, res) => {
         }
     });
 });
-
-// hologramApi.get("/:name", async (req, res) => {
-//     gfs.find({ metadata: req.params.name }).toArray((err, files) => {
-//         console.log(files[0])
-//         if (err) {
-//             return res.status(404).send;
-//         }
-//         if (!files[0] || files[0].length === 0) {
-//             return res.status(404).send;
-//         }
-
-//         if (req.headers["range"]) {
-//             console.log(req.headers.range)
-//             const parts = req.headers["range"].replace(/bytes=/, "").split("-");
-//             const partialStart = parts[0];
-//             const partialEnd = parts[1];
-
-//             const start = parseInt(partialStart, 10);
-//             const end = partialEnd ? parseInt(partialEnd, 10) : files[0].length - 1;
-//             const chunkSize = (end - start) + 1;
-
-//             res.writeHead(206, {
-//                 "Accept-Ranges": "bytes",
-//                 "Content-Length": chunkSize,
-//                 "Content-Range": `bytes ${start}-${end}/${files[0].length}`,
-//                 "Content-Type": files[0].contentType
-//             });
-
-//             gfs.openDownloadStream(files[0]._id, {start, end }).pipe(res);
-
-//         } else {
-//             console.log("hei")
-//             res.header("Content-Length", files[0].length);
-//             res.header("Content-Type", files[0].contentType);
-
-//             gfs.openDownloadStream({
-//                 _id: files[0]._id
-//             }).pipe(res);
-
-//             gfs.openDownloadStream(files[0]._id).pipe(res);
-//         }
-//     });
-// });
 
 module.exports = hologramApi;

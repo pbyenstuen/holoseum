@@ -4,7 +4,7 @@ const passport = require("passport");
 const authApi = express.Router();
 
 // POST /api/auth/login
-// Authenticates user which gives access to protected API endpoints. User is added to session and session is stored in MongoDB
+// Authenticates user, which gives access to protected API endpoints. User is added to session and session is stored in MongoDB
 authApi.post("/login", passport.authenticate("local"), (req, res) => {
   console.log(req.session);
   res.status(200).send();
