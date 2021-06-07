@@ -119,12 +119,36 @@ describe("AdminPage", () => {
         await mountComponent(<AdminPage api={api} />);
 
         await act(async () => {
-            await Simulate.click(container.querySelector("#del-btn"));
+            await Simulate.click(container.querySelector(".prep-del-btn"));
+            await Simulate.click(container.querySelector(".confirm-del-btn"));
         });
 
         expect(deleteHologram).toBeCalledWith({
             name: "Skipskranen"
         });
+    });
+
+    it("can decline deletion", async () => {
+        const deleteHologram = jest.fn();
+
+        const api = {
+            holo: {
+                deleteHologram,
+                getHolograms: () => [{
+                    _id: 0,
+                    metadata: "Skipskranen"
+                }]
+            }
+        }
+
+        await mountComponent(<AdminPage api={api} />);
+
+        await act(async () => {
+            await Simulate.click(container.querySelector(".prep-del-btn"));
+            await Simulate.click(container.querySelector(".decline-del-btn"));
+        });
+
+        expect(container.querySelector("p").textContent).toEqual("Skipskranen");
     });
 
     it("can show error message for empty fields", async () => {

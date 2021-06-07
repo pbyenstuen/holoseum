@@ -30,10 +30,12 @@ const ContactPage = () => {
                         <div id="input-container-left">
                             <InputField
                                 label={"Navn"}
+                                name={"name"}
                                 value={name}
                                 onValueChange={setName} />
                             <InputField
                                 type={"email"}
+                                name={"email"}
                                 label={"E-postadresse"}
                                 value={email}
                                 onValueChange={setEmail} />
@@ -41,7 +43,10 @@ const ContactPage = () => {
                         </div>
                         <div id="textarea-container">
                             <label>Melding</label>
-                            <textarea placeholder="Skriv en melding til oss her!" value={message} onChange={(e) => setMessage(e.target.value)} />
+                            <textarea
+                                name="message"
+                                placeholder="Skriv en melding til oss her!"
+                                value={message} onChange={(e) => setMessage(e.target.value)} />
                         </div>
                     </div>
                 </form>
