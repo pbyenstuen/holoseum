@@ -2,7 +2,7 @@ import React from "react";
 
 const InputField = ({ value, onValueChange, type = "text", label = "", name, placeholder, className }) => {
     return (
-        <div>
+        <>
             <label>
                 {label}{" "}
                 <input
@@ -14,7 +14,7 @@ const InputField = ({ value, onValueChange, type = "text", label = "", name, pla
                     onChange={(e) => onValueChange(type === "file" ? e.target.files[0] : e.target.value)}
                 />
             </label>
-        </div>
+        </>
     )
 }
 

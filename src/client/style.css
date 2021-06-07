@@ -378,18 +378,58 @@ footer {
     display: flex;
     flex-direction: row;
     align-items: stretch;
+    justify-content: center;
     padding: 1em;
     background-color: #29353a;
     border-radius: 8px;
     margin: 0.5em 0em 0.5em 0em;
+    height: 4em;
+    padding: 0;
 }
 
 #hologram-list-container div p {
+    margin: 1em;
+    align-self: center;
     flex: 1;
 }
 
 #hologram-list-container div article button {
+    margin: 1em;
     padding: 0.5em;
+}
+
+.prep-del-btn {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+
+.prep-del-btn:hover {
+    background-color: transparent;
+}
+
+.prep-del-btn:hover i {
+    color: var(--marking-color);
+}
+
+.del-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    margin: 0 !important;
+    border-left: 3px solid var(--main-background);
+    width: 4em;
+    border-radius: 0;
+}
+
+.del-btn:hover {
+    background-color: #d674563d;
+}
+
+.marked-for-deletion {
+    background-color: #d6795d60 !important;
+    font-weight: bold;
 }
 
 #video-container {
@@ -439,15 +479,12 @@ footer {
     header {
         padding: 0;
     }
-    
     #home-page-container {
         padding: 0;
     }
-
     #contact-page-card {
         width: 75%;
     }
-    
     #guide-container {
         flex-direction: column;
         gap: 0;
@@ -455,12 +492,10 @@ footer {
         align-items: center;
         padding-bottom: 0;
     }
-
     .guide-point {
         box-shadow: none;
         background-image: var(--card-gradient);
     }
-
     footer {
         display: none;
     }
