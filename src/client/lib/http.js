@@ -5,6 +5,9 @@ const checkResponse = (res, url) => {
     if (url.startsWith("/auth") && (statusCode === "400" || statusCode === "401")) {
       error = "Feil brukernavn/passord";
     }
+    if (url.startsWith("/holograms/upload") && (statusCode === "500" )) {
+      error = "Det oppstod en feil. Lastet du opp riktig filtype (.mp4)?";
+    } 
     throw error;
   }
 }

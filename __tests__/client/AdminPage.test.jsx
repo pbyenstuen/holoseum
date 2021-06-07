@@ -157,6 +157,6 @@ describe("AdminPage", () => {
         Simulate.submit(container.querySelector("form"));
 
         expect(container.innerHTML).toMatchSnapshot();
-        expect(container.querySelector("h4").textContent).toEqual("Fyll inn alle feltene");
+        expect(container.querySelector("h4").textContent).toEqual("Vennligst fyll inn alle feltene");
     });
 });

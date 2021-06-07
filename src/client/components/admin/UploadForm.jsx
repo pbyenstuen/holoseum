@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import useSubmit from "../../hooks/useSubmit";
+import InputErrorView from "../shared/InputErrorView";
 import InputField from "../shared/InputField";
 
 const UploadForm = ({ api, updateList }) => {
     const [name, setName] = useState("");
     const [file, setFile] = useState();
+    const [inputError, setInputError] = useState();
     const [status, setStatus] = useState();
 
     const { handleSubmit: handleUpload, submitting, error } = useSubmit(
         async () => {
             setStatus("");
+            setInputError("");
             const formData = new FormData();
             formData.append("name", name);
             formData.append("file", file);
@@ -24,7 +27,7 @@ const UploadForm = ({ api, updateList }) => {
 
     const validateInput = (e) => {
         e.preventDefault();
-        if (!name || !file) { setStatus("Fyll inn alle feltene"); return; }
+        if (!name || !file) { setInputError("Vennligst fyll inn alle feltene"); return; }
         handleUpload(e);
     }
 
@@ -34,7 +37,8 @@ const UploadForm = ({ api, updateList }) => {
             <div id="upload-form-card" className="card">
                 {submitting ? <h4>Laster opp...</h4> :
                     <form onSubmit={validateInput}>
-                        {error && <h4>{error.toString()}</h4>}
+                        {error && <InputErrorView error={error}/>}
+                        {inputError && <InputErrorView error={inputError}/>}
                         {status && <h4>{status.toString()}</h4>}
                         <div>
                             <InputField
