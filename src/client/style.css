@@ -72,12 +72,16 @@ footer {
 button {
     display: block;
     border: 0px;
-    color: white;
+    color: var(--main-background);
     background-color: var(--marking-color);
     cursor: pointer;
     box-shadow: #22212133 0px 40px 20px -10px;
     border-radius: 4px;
     overflow: hidden;
+}
+
+i {
+    color: white;
 }
 
 button:hover {
@@ -390,7 +394,6 @@ footer {
 #hologram-list-container div p {
     margin: 1em;
     align-self: center;
-    flex: 1;
 }
 
 #hologram-list-container div article button {
@@ -418,7 +421,6 @@ footer {
     justify-content: center;
     background-color: transparent;
     margin: 0 !important;
-    border-left: 3px solid var(--main-background);
     width: 4em;
     border-radius: 0;
 }
@@ -427,8 +429,13 @@ footer {
     background-color: #d674563d;
 }
 
+.holo-name {
+    flex: 1;
+}
+
 .marked-for-deletion {
     background-color: #d6795d60 !important;
+    justify-content: stretch;
     font-weight: bold;
 }
 

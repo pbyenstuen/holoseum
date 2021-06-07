@@ -28,7 +28,7 @@ const HologramList = ({ api, holograms, loading, error, updateList }) => {
                             <article key={_id} className={fileToDelete === name ? "marked-for-deletion" : ""}>
                                 {fileToDelete !== name ?
                                     <>
-                                        <p>{`${name.charAt(0).toUpperCase()}${name.slice(1)}`}</p>
+                                        <p className="holo-name">{`${name.charAt(0).toUpperCase()}${name.slice(1)}`}</p>
                                         <button className="prep-del-btn" onClick={() => setFileToDelete(name)}>
                                             <i className="fa fa-trash fa-2x" title="Slett" aria-label="Slett"></i>
                                         </button>
