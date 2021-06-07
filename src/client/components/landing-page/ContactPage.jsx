@@ -1,29 +1,49 @@
 import React, { useState } from "react";
+import InputErrorView from "../shared/InputErrorView";
 import InputField from "../shared/InputField";
 
 const ContactPage = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const [inputError, setInputError] = useState("");
+
+    const validateInput = (e) => {
+        e.preventDefault();
+        if (!name || !email || !message) {
+            setInputError("Vennligst fyll inn alle feltene");
+            return;
+        }
+        setInputError("");
+        setName("");
+        setEmail("");
+        setMessage("");
+    }
 
     return (
         <div id="contact-page-container" className="card-container">
             <div id="contact-page-card" className="card">
                 <h2>KONTAKT OSS</h2>
-                <form>
+                <form onSubmit={validateInput}>
+                    {inputError && <InputErrorView error={inputError} />}
                     <div id="input-container">
-                        <InputField
-                            label={"Navn"}
-                            value={name}
-                            onValueChange={setName} />
-                        <InputField
-                            label={"E-postadresse"}
-                            value={email}
-                            onValueChange={setEmail} />
-                        <label>Melding</label>
-                        <textarea value={message} onChange={(e) => setMessage(e.target.value)} />
+                        <div id="input-container-left">
+                            <InputField
+                                label={"Navn"}
+                                value={name}
+                                onValueChange={setName} />
+                            <InputField
+                                type={"email"}
+                                label={"E-postadresse"}
+                                value={email}
+                                onValueChange={setEmail} />
+                            <button id="contact-submit-btn">SEND</button>
+                        </div>
+                        <div id="textarea-container">
+                            <label>Melding</label>
+                            <textarea placeholder="Skriv en melding til oss her!" value={message} onChange={(e) => setMessage(e.target.value)} />
+                        </div>
                     </div>
-                    <button id="contact-submit-btn">SEND</button>
                 </form>
             </div>
         </div>

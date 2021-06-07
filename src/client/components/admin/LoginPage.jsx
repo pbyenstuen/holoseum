@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import useSubmit from "../../hooks/useSubmit";
+import InputErrorView from "../shared/InputErrorView";
 import InputField from "../shared/InputField";
 
 const LoginPage = ({ api, updateUser }) => {
@@ -37,8 +38,8 @@ const LoginPage = ({ api, updateUser }) => {
                 <h2>Admin - Logg Inn</h2>
                 <form onSubmit={validateInput}>
                     {submitting && <h4>Vennligst vent...</h4>}
-                    {error && <h4>{error.toString()}</h4>}
-                    {inputError && <h4>{inputError.toString()}</h4>}
+                    {error && <InputErrorView error={error}/>}
+                    {inputError && <InputErrorView error={inputError}/>}
                     <InputField
                         name={"username"}
                         placeholder={"Brukernavn"}
