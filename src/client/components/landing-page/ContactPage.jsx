@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useMediaQuery from "../../hooks/useMediaQuery";
 import InputErrorView from "../shared/InputErrorView";
 import InputField from "../shared/InputField";
 
@@ -7,6 +8,7 @@ const ContactPage = () => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [inputError, setInputError] = useState("");
+    const mobile = useMediaQuery("(max-width: 768px)");
 
     const validateInput = (e) => {
         e.preventDefault();
@@ -23,7 +25,7 @@ const ContactPage = () => {
     return (
         <div id="contact-page-container" className="card-container">
             <div id="contact-page-card" className="card">
-                <h2>KONTAKT OSS</h2>
+                {!mobile && <h2>KONTAKT OSS</h2>}
                 <form onSubmit={validateInput}>
                     {inputError && <InputErrorView error={inputError} />}
                     <div id="input-container">
@@ -39,16 +41,17 @@ const ContactPage = () => {
                                 label={"E-postadresse"}
                                 value={email}
                                 onValueChange={setEmail} />
-                            <button id="contact-submit-btn">SEND</button>
+                            {!mobile && <button id="contact-submit-btn">SEND</button>}
                         </div>
                         <div id="textarea-container">
-                            <label>Melding</label>
+                            {!mobile && <label>Melding</label>}
                             <textarea
                                 name="message"
                                 placeholder="Skriv en melding til oss her!"
                                 value={message} onChange={(e) => setMessage(e.target.value)} />
                         </div>
                     </div>
+                    {mobile && <button id="contact-submit-btn">SEND</button>}
                 </form>
             </div>
         </div>

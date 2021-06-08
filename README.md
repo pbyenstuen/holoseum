@@ -28,10 +28,10 @@ Passord:
 ### Testdekning
 
 | Måling     | %          
-| -----------|-------------
-| Statements | 82.41 |
-| Branch     | 65.09 |
-| Functions  | 85.29 |
-| Lines      | 82.14 |
+| -----------|--------
+| Statements | 82.18 |
+| Branch     | 66.38 |
+| Functions  | 83.33 |
+| Lines      | 82.19 |
 
 Tester kjøres med `npm test`
