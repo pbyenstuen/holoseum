@@ -293,7 +293,7 @@ header button {
 .guide-point h2 {
     font-family: 'Girassol', cursive;
     color: var(--marking-color);
-    font-size: 12vmax;
+    font-size: 10vmax;
 }
 
 .guide-point p {
@@ -544,15 +544,12 @@ footer {
     header {
         padding: 0;
     }
-
     header nav a:hover {
         background-color: transparent;
     }
-
     .is-active {
         background-color: #41484b96 !important;
     }
-
     #home-page-container {
         margin-top: 3em;
         padding: 0;
@@ -567,29 +564,24 @@ footer {
         border-radius: 0;
         margin-bottom: 0;
     }
-
     #home-page-banner-content-wrapper {
         display: flex;
         justify-content: space-between;
         flex-direction: column;
         height: 90%;
     }
-
     #home-page-banner-fade {
         background-image: linear-gradient(to bottom, #29353a, #29353ac5, #29353a9a);
     }
-
     #home-page-banner-content-wrapper p {
         width: 100%;
         font-size: 15px;
         overflow: hidden;
     }
-
     #home-page-banner-content-wrapper button {
         width: 100%;
         font-size: 3vmax;
     }
-
     #contact-page-container {
         height: 100vh;
         margin: 0 !important;
@@ -633,5 +625,11 @@ footer {
     }
     footer {
         display: none;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .guide-point h2 {
+        font-size: 11rem;
     }
 }
