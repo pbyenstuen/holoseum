@@ -24,7 +24,7 @@ const ContactPage = () => {
 
     return (
         <div id="contact-page-container" className="card-container">
-            <div id="contact-page-card" className="card">
+            <section id="contact-page-card" className="card">
                 {!mobile && <h2>KONTAKT OSS</h2>}
                 <form onSubmit={validateInput}>
                     {inputError && <InputErrorView error={inputError} />}
@@ -53,7 +53,7 @@ const ContactPage = () => {
                     </div>
                     {mobile && <button id="contact-submit-btn">SEND</button>}
                 </form>
-            </div>
+            </section>
         </div>
     )
 }

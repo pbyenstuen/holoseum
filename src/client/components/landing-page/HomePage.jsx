@@ -12,7 +12,7 @@ const HomePage = () => {
     return (
         <>
             <div id="home-page-container">
-                <div id="home-page-banner" className="card">
+                <section id="home-page-banner" className="card">
                     <div id="home-page-banner-fade">
                         <div id="home-page-banner-content-wrapper">
                             <h1>HOLOSEUM</h1>
@@ -29,33 +29,31 @@ const HomePage = () => {
                             Bla ned for å se hvordan det fungerer.
                             </p>
                             <Link to="/kontakt">
-                                <Button id="contact-btn">
-                                    KONTAKT OSS
-                            </Button>
+                                <Button id="contact-btn">KONTAKT OSS</Button>
                             </Link>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div tabIndex="0" id="guide-container">
-                    <div className="guide-point card" data-aos="fade-up">
+                <section tabIndex="0" id="guide-container">
+                    <article className="guide-point card" data-aos="fade-up">
                         <h2>1</h2>
                         <img src={guideStep1} alt="Animasjon - guide steg 1" />
                         <p>Sett sammen stativet</p>
-                    </div>
+                    </article>
 
-                    <div className="guide-point card" data-aos="fade-up" data-aos-delay={!mobile ? "500" : ""}>
+                    <article className="guide-point card" data-aos="fade-up" data-aos-delay={!mobile ? "500" : ""}>
                         <h2>2</h2>
                         <img src={guideStep2} alt="Animasjon - guide steg 2" />
                         <p>Bruk et nettbrett og skann en QR-kode på kartet i brosjyren</p>
-                    </div>
+                    </article>
 
-                    <div className="guide-point card" data-aos="fade-up" data-aos-delay={!mobile ? "1000" : ""}>
+                    <article className="guide-point card" data-aos="fade-up" data-aos-delay={!mobile ? "1000" : ""}>
                         <h2>3</h2>
                         <img src={guideStep3} alt="Animasjon - guide steg 3" />
                         <p>Legg nettbrettet på toppen av stativet, og hologrammet vil vises</p>
-                    </div>
-                </div>
+                    </article>
+                </section>
             </div>
         </>
     )

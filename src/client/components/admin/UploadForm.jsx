@@ -32,9 +32,9 @@ const UploadForm = ({ api, updateList }) => {
     }
 
     return (
-        <section id="upload-form-container">
+        <div id="upload-form-container">
             <h2>Last opp hologram</h2>
-            <div id="upload-form-card" className="card">
+            <section id="upload-form-card" className="card">
                 {submitting ? <h4>Laster opp...</h4> :
                     <form onSubmit={validateInput}>
                         {error && <InputErrorView error={error}/>}
@@ -58,8 +58,8 @@ const UploadForm = ({ api, updateList }) => {
                         </div>
                     </form>
                 }
-            </div>
-        </section>
+            </section>
+        </div>
     );
 };
 

@@ -33,7 +33,7 @@ const LoginPage = ({ api, updateUser }) => {
 
     return (
         <div id="login-page-container">
-            <div id="login-card">
+            <section id="login-card">
                 <Link to="/">← Hovedside</Link>
                 <h2>Admin - Logg Inn</h2>
                 <form onSubmit={validateInput}>
@@ -55,7 +55,7 @@ const LoginPage = ({ api, updateUser }) => {
                     />
                     <button disabled={submitting}>LOGG INN</button>
                 </form>
-            </div>
+            </section>
         </div>
     );
 };
