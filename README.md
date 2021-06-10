@@ -29,10 +29,10 @@ Passord:
 
 | Måling     | %          
 | -----------|--------
-| Statements | 82.57 |
-| Branch     | 65.83 |
+| Statements | 82.62 |
+| Branch     | 65.08 |
 | Functions  | 84.72 |
-| Lines      | 82.37 |
+| Lines      | 82.43 |
 
 
 Tester kjøres med `npm test`
