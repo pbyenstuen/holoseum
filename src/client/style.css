@@ -296,6 +296,7 @@ header button {
     width: 95%;
     padding: 1em;
     padding-top: 3em;
+    padding-bottom: 2.5em;
     background-image: var(--card-gradient-transparent-top);
     overflow: hidden;
 }
@@ -312,7 +313,7 @@ header button {
 }
 
 .guide-point img {
-    width: 15em;
+    width: 100%;
 }
 
 #contact-page-card {
@@ -586,11 +587,16 @@ footer {
     #home-page-banner {
         text-align: center;
         width: 100%;
+        height: calc(100vh - 37px);
         font-size: 25px;
         overflow: hidden;
         margin-top: 0em;
         border-radius: 0;
         margin-bottom: 0;
+    }
+
+    #home-page-banner-fade {
+        height: 100%;
     }
     #home-page-banner-content-wrapper {
         display: flex;
