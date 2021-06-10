@@ -225,7 +225,7 @@ header button {
 .card {
     color: white;
     background-image: var(--card-gradient);
-    padding: 1em;
+    padding: 2em;
     box-shadow: #00000033 0px 60px 40px -7px;
     border-radius: 8px;
 }
@@ -290,7 +290,8 @@ header button {
     align-items: center;
     margin-bottom: 1em;
     width: 95%;
-    padding: 3em;
+    padding: 1em;
+    padding-top: 3em;
     background-image: var(--card-gradient-transparent-top);
     overflow: hidden;
 }
@@ -308,7 +309,6 @@ header button {
 
 .guide-point img {
     width: 15em;
-    height: 15em;
 }
 
 #contact-page-card {
