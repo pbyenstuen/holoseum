@@ -236,7 +236,7 @@ header button {
     font-size: 3vmax;
     overflow: hidden;
     margin-top: 0.6em;
-    height: 77vh;
+    height: auto;
     width: 95%;
     background-image: url("../../img/home-page-banner-bg.png");
     background-size: cover;
@@ -250,7 +250,6 @@ header button {
 
 #home-page-banner-fade {
     background-image: linear-gradient(to right bottom, #29353a, #29353ad2, #29353a50, #ffffff00);
-    height: 100%;
     padding: 0;
     margin: 0;
     overflow: hidden;
@@ -586,7 +585,6 @@ footer {
         font-size: 25px;
         overflow: hidden;
         margin-top: 0em;
-        height: 94vh;
         border-radius: 0;
         margin-bottom: 0;
     }
