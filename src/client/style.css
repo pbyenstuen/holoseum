@@ -85,6 +85,10 @@ button {
     overflow: hidden;
 }
 
+.fa-cog {
+    display: inline !important;
+}
+
 i {
     color: white;
 }
@@ -131,7 +135,7 @@ header button {
     position: absolute;
     right: 1em;
     font-size: 15px;
-    padding: 0.5em;
+    padding: 10px;
 }
 
 #mobile-admin-link {
