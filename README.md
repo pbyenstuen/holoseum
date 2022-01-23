@@ -4,8 +4,6 @@ This repository contains the technical part of *Holoseum*, a physical product de
 The following brief was aimed at the examinator.
 ***
 
-<br/>
-
 ## Holoseum
 
 ### Hvordan kjøre
