@@ -1,5 +1,5 @@
 ***
-This repository contains the technical part of *Holoseum*, a physical product developed for the client [Tidvis](https://www.tidvis.no/) in the course *PRO201 Agile Project* at Kristiania University College, spring 2021.
+This repository contains the technical part of *Holoseum*, a physical product developed for the client [Tidvis](https://www.tidvis.no/) in the course [*PRO201 Agile Project*](https://www.kristiania.no/studieportal/school-of-economics-innovation-and-technology/bachelorniva/pro201/smidig-prosjekt/) at Kristiania University College, spring 2021.
 
 The following brief was aimed at the examinator.
 ***
